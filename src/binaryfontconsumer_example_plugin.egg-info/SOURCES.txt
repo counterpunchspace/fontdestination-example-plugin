@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/binaryfontconsumer_example_plugin/__init__.py
+src/binaryfontconsumer_example_plugin/plugin.py
+src/binaryfontconsumer_example_plugin.egg-info/PKG-INFO
+src/binaryfontconsumer_example_plugin.egg-info/SOURCES.txt
+src/binaryfontconsumer_example_plugin.egg-info/dependency_links.txt
+src/binaryfontconsumer_example_plugin.egg-info/entry_points.txt
+src/binaryfontconsumer_example_plugin.egg-info/top_level.txt
+tests/test_plugin.py

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fontdestination-example-plugin"
+version = "0.1.0"
+description = "Example Counterpunch Font Destination plugin"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Yanone" }]
+
+[project.entry-points."counterpunch_font_destination_plugins"]
+example_binary_font_consumer = "binaryfontconsumer_example_plugin:FontDestinationPlugin"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

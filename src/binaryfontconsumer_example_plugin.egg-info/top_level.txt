@@ -1,0 +1,1 @@
+binaryfontconsumer_example_plugin

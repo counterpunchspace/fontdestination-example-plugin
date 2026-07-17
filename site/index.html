@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Example Counterpunch font destination" />
+        <title>Font Destination</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main class="receiver-shell">
+            <header class="receiver-header">
+                <p class="eyebrow">Counterpunch Font Destination</p>
+                <h1>Binary Font Receiver</h1>
+                <p class="intro">Waiting for an exported font from Counterpunch.</p>
+            </header>
+            <section class="font-card" aria-live="polite">
+                <div class="font-card-heading">
+                    <span class="status-dot" id="status-dot"></span>
+                    <h2 id="font-status">No font received</h2>
+                </div>
+                <dl class="font-details" id="font-details">
+                    <div><dt>State</dt><dd>Open this destination, then export a binary font.</dd></div>
+                </dl>
+            </section>
+        </main>
+        <script src="app.js"></script>
+    </body>
+</html>

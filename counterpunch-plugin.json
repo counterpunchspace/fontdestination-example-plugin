@@ -1,0 +1,19 @@
+{
+  "schema": "counterpunch-plugin-manifest:v1",
+  "package": "fontdestination-example-plugin",
+  "provides": ["counterpunch-plugin:font-destination:v1"],
+  "fontDestination": {
+    "entryPoint": "example_binary_font_consumer",
+    "pluginId": "example-binary-font-consumer",
+    "name": "Example Binary Font Consumer",
+    "description": "Opens a small browser receiver that displays basic information about each exported binary font.",
+    "destinationUrl": "https://yanone.github.io/fontdestination-example-plugin/",
+    "targetOrigin": "https://yanone.github.io",
+    "repositoryUrl": "https://github.com/yanone/fontdestination-example-plugin"
+  },
+  "release": {
+    "repository": "yanone/fontdestination-example-plugin",
+    "wheelAssetPrefix": "binaryfontconsumer_example_plugin-",
+    "checksumAssetSuffix": ".sha256"
+  }
+}

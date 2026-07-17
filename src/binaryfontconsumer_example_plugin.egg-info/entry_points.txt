@@ -1,0 +1,2 @@
+[counterpunch_font_destination_plugins]
+example_binary_font_consumer = binaryfontconsumer_example_plugin:FontDestinationPlugin
