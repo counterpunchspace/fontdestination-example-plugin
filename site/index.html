@@ -24,6 +24,20 @@
                 </dl>
             </section>
         </main>
-        <script src="app.js"></script>
+        <script>
+            const assetUrl = new URL('app.js', window.location.href);
+            const cacheVersion = new URLSearchParams(
+                window.location.search
+            ).get('counterpunchCacheVersion');
+            if (cacheVersion) {
+                assetUrl.searchParams.set(
+                    'counterpunchCacheVersion',
+                    cacheVersion
+                );
+            }
+            const receiverScript = document.createElement('script');
+            receiverScript.src = assetUrl.href;
+            document.body.append(receiverScript);
+        </script>
     </body>
 </html>
