@@ -4,7 +4,8 @@ const detailsElement = document.getElementById('font-details');
 const counterpunchEditorOrigins = new Set([
     'https://editor.counterpunch.space',
     'https://preview.editor.counterpunch.space',
-    'https://localhost:8000'
+    'https://localhost:8000',
+    'https://localhost:8789'
 ]);
 
 function readTag(view, offset) {
@@ -90,7 +91,7 @@ window.addEventListener('message', (event) => {
     const message = event.data;
     if (
         !counterpunchEditorOrigins.has(event.origin) ||
-        event.source !== window.opener ||
+        event.source !== window.parent ||
         !message ||
         message.type !== 'counterpunch:binary-font-exported' ||
         message.version !== 1 ||
@@ -118,3 +119,15 @@ window.addEventListener('message', (event) => {
         renderDetails({ Error: error instanceof Error ? error.message : String(error) });
     }
 });
+
+if (window.parent !== window) {
+    for (const editorOrigin of counterpunchEditorOrigins) {
+        window.parent.postMessage(
+            {
+                type: 'counterpunch:font-destination-ready',
+                version: 1
+            },
+            editorOrigin
+        );
+    }
+}
