@@ -1,6 +1,7 @@
 const statusElement = document.getElementById('font-status');
 const statusDot = document.getElementById('status-dot');
 const detailsElement = document.getElementById('font-details');
+let receiptCount = 0;
 const counterpunchEditorOrigins = new Set([
     'https://editor.counterpunch.space',
     'https://preview.editor.counterpunch.space',
@@ -101,9 +102,13 @@ window.addEventListener('message', (event) => {
 
     try {
         const inspection = inspectFont(message.bytes);
+        receiptCount += 1;
         statusElement.textContent = message.metadata?.filename || 'Font received';
         statusDot.classList.add('received');
         renderDetails({
+            'Receipt number': receiptCount,
+            'Received at': new Date().toLocaleTimeString(),
+            'Counterpunch change version': message.metadata?.changeVersion ?? 'Unavailable',
             'File name': message.metadata?.filename || 'Unavailable',
             'Byte size': message.metadata?.byteLength || message.bytes.byteLength,
             'sfnt version': inspection.sfntVersion,
