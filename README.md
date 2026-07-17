@@ -11,3 +11,5 @@ counterpunch-plugin:font-destination:v1
 
 The Pages receiver waits for a `counterpunch:binary-font-exported` message and
 shows basic sfnt information from the transferred binary font.
+
+The page is available at https://counterpunchspace.github.io/fontdestination-example-plugin/ but in order to function, it needs to be opened from within Counterpunch, hence the detour via the plugin.
