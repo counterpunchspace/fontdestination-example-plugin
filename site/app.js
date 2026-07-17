@@ -91,7 +91,6 @@ window.addEventListener('message', (event) => {
     const message = event.data;
     if (
         !counterpunchEditorOrigins.has(event.origin) ||
-        event.source !== window.parent ||
         !message ||
         message.type !== 'counterpunch:binary-font-exported' ||
         message.version !== 1 ||
