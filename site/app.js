@@ -1,6 +1,11 @@
 const statusElement = document.getElementById('font-status');
 const statusDot = document.getElementById('status-dot');
 const detailsElement = document.getElementById('font-details');
+const counterpunchEditorOrigins = new Set([
+    'https://editor.counterpunch.space',
+    'https://preview.editor.counterpunch.space',
+    'https://localhost:8000'
+]);
 
 function readTag(view, offset) {
     return String.fromCharCode(
@@ -84,6 +89,7 @@ function renderDetails(details) {
 window.addEventListener('message', (event) => {
     const message = event.data;
     if (
+        !counterpunchEditorOrigins.has(event.origin) ||
         event.source !== window.opener ||
         !message ||
         message.type !== 'counterpunch:binary-font-exported' ||

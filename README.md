@@ -1,4 +1,4 @@
-# Example Binary Font Consumer
+# Example Font Destination
 
 A reference Counterpunch Font Destination package and GitHub Pages receiver.
 

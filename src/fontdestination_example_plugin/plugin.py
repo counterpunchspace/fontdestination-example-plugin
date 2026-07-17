@@ -4,15 +4,15 @@
 class FontDestinationPlugin:
     """Describe the example browser receiver without handling font bytes itself."""
 
-    plugin_id = "example-binary-font-consumer"
-    name = "Example Binary Font Consumer"
+    plugin_id = "example-font-destination"
+    name = "Example Font Destination"
     description = (
         "Opens a small browser receiver that displays basic information about "
         "each exported binary font."
     )
-    destination_url = "https://yanone.github.io/fontdestination-example-plugin/"
-    target_origin = "https://yanone.github.io"
-    repository_url = "https://github.com/yanone/fontdestination-example-plugin"
+    destination_url = "https://counterpunchspace.github.io/fontdestination-example-plugin/"
+    target_origin = "https://counterpunchspace.github.io"
+    repository_url = "https://github.com/counterpunchspace/fontdestination-example-plugin"
     icon_url = None
 
     def metadata(self) -> dict[str, str | None]:
