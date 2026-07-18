@@ -2,12 +2,9 @@ const statusElement = document.getElementById('font-status');
 const statusDot = document.getElementById('status-dot');
 const detailsElement = document.getElementById('font-details');
 let receiptCount = 0;
-const counterpunchEditorOrigins = new Set([
-    'https://editor.counterpunch.space',
-    'https://preview.editor.counterpunch.space',
-    'https://localhost:8000',
-    'https://localhost:8789'
-]);
+
+// Demo rendering only. The Counterpunch protocol lives in
+// counterpunch-font-destination.js so third-party receivers can reuse it.
 
 function readTag(view, offset) {
     return String.fromCharCode(
@@ -88,50 +85,36 @@ function renderDetails(details) {
     );
 }
 
-window.addEventListener('message', (event) => {
-    const message = event.data;
-    if (
-        !counterpunchEditorOrigins.has(event.origin) ||
-        !message ||
-        message.type !== 'counterpunch:binary-font-exported' ||
-        message.version !== 1 ||
-        !(message.bytes instanceof ArrayBuffer)
-    ) {
-        return;
-    }
-
-    try {
-        const inspection = inspectFont(message.bytes);
+window.CounterpunchFontDestination.register({
+    onFont({ bytes, metadata }) {
         receiptCount += 1;
-        statusElement.textContent = message.metadata?.filename || 'Font received';
-        statusDot.classList.add('received');
-        renderDetails({
+        const receiptDetails = {
             'Receipt number': receiptCount,
             'Received at': new Date().toLocaleTimeString(),
-            'Counterpunch change version': message.metadata?.changeVersion ?? 'Unavailable',
-            'File name': message.metadata?.filename || 'Unavailable',
-            'Byte size': message.metadata?.byteLength || message.bytes.byteLength,
-            'sfnt version': inspection.sfntVersion,
-            'Family name': inspection.familyName,
-            'Full name': inspection.fullName,
-            'Units per em': inspection.unitsPerEm,
-            'Glyph count': inspection.glyphCount,
-            'Tables': inspection.tables
-        });
-    } catch (error) {
-        statusElement.textContent = 'Unable to inspect font';
-        renderDetails({ Error: error instanceof Error ? error.message : String(error) });
+            'Counterpunch change version': metadata.changeVersion ?? 'Unavailable',
+            'File name': metadata.filename || 'Unavailable',
+            'Byte size': metadata.byteLength || bytes.byteLength
+        };
+        statusDot.classList.add('received');
+
+        try {
+            const inspection = inspectFont(bytes);
+            statusElement.textContent = metadata.filename || 'Font received';
+            renderDetails({
+                ...receiptDetails,
+                'sfnt version': inspection.sfntVersion,
+                'Family name': inspection.familyName,
+                'Full name': inspection.fullName,
+                'Units per em': inspection.unitsPerEm,
+                'Glyph count': inspection.glyphCount,
+                'Tables': inspection.tables
+            });
+        } catch (error) {
+            statusElement.textContent = 'Unable to inspect font';
+            renderDetails({
+                ...receiptDetails,
+                Error: error instanceof Error ? error.message : String(error)
+            });
+        }
     }
 });
-
-if (window.parent !== window) {
-    for (const editorOrigin of counterpunchEditorOrigins) {
-        window.parent.postMessage(
-            {
-                type: 'counterpunch:font-destination-ready',
-                version: 1
-            },
-            editorOrigin
-        );
-    }
-}

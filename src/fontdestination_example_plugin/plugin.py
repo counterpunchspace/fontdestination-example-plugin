@@ -4,6 +4,8 @@
 class FontDestinationPlugin:
     """Describe the example browser receiver without handling font bytes itself."""
 
+    # Keep these values in sync with counterpunch-plugin.json. Counterpunch uses
+    # this metadata after installing the wheel to populate Tools > Font Destinations.
     plugin_id = "example-font-destination"
     name = "Example Font Destination"
     description = (
