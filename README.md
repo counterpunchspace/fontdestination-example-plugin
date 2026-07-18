@@ -32,14 +32,14 @@ register one callback:
 ```html
 <script src="counterpunch-font-destination.js"></script>
 <script>
-		CounterpunchFontDestination.register({
-				onFont({ bytes, metadata }) {
-						// bytes is an ArrayBuffer containing the exported font.
-						// metadata.filename, metadata.byteLength, metadata.format,
-						// metadata.mimeType, metadata.changeVersion, and
-						// metadata.timeTakenMs describe the export.
-				}
-		});
+  CounterpunchFontDestination.register({
+    onFont({ bytes, metadata }) {
+      // bytes is an ArrayBuffer containing the exported font.
+      // metadata.filename, metadata.byteLength, metadata.format,
+      // metadata.mimeType, metadata.changeVersion, and
+      // metadata.timeTakenMs describe the export.
+    },
+  });
 </script>
 ```
 
@@ -56,9 +56,12 @@ with your own upload, preview, validation, or publishing workflow.
 
 - `counterpunch-plugin.json`: discovery metadata and release asset rules.
 - `src/fontdestination_example_plugin/plugin.py`: Python entry point metadata
-	returned to Counterpunch after installation.
+  returned to Counterpunch after installation.
+- `site/plugin-preview.png`: optional 2:1 Plugin Manager preview image. Replace
+  it with a screenshot of your receiver app and keep `imageUrl` pointed at the
+  deployed GitHub Pages PNG, not a GitHub `blob` page.
 - `site/`: the browser receiver. Keep the reusable helper or replace it with
-	equivalent protocol handling.
+  equivalent protocol handling.
 
 Keep `counterpunch-plugin.json` and `plugin.py` in sync. The manifest is used
 before installation, while the Python metadata is used after the wheel is

@@ -15,7 +15,7 @@ class FontDestinationPlugin:
     destination_url = "https://counterpunchspace.github.io/fontdestination-example-plugin/"
     target_origin = "https://counterpunchspace.github.io"
     repository_url = "https://github.com/counterpunchspace/fontdestination-example-plugin"
-    icon_url = None
+    image_url = "https://counterpunchspace.github.io/fontdestination-example-plugin/plugin-preview.png"
 
     def metadata(self) -> dict[str, str | None]:
         """Return serializable metadata used by Counterpunch's Tools menu."""
@@ -26,5 +26,5 @@ class FontDestinationPlugin:
             "destinationUrl": self.destination_url,
             "targetOrigin": self.target_origin,
             "repositoryUrl": self.repository_url,
-            "iconUrl": self.icon_url,
+            "imageUrl": self.image_url,
         }

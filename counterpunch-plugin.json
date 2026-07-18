@@ -9,7 +9,8 @@
     "description": "Opens a small browser receiver that displays basic information about each exported binary font.",
     "destinationUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/",
     "targetOrigin": "https://counterpunchspace.github.io",
-    "repositoryUrl": "https://github.com/counterpunchspace/fontdestination-example-plugin"
+    "repositoryUrl": "https://github.com/counterpunchspace/fontdestination-example-plugin",
+    "imageUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/plugin-preview.png"
   },
   "release": {
     "repository": "counterpunchspace/fontdestination-example-plugin",
