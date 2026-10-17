@@ -1,20 +1,18 @@
 {
-  "schema": "counterpunch-plugin-manifest:v1",
+  "schema": "counterpunch-plugin-manifest:v2",
   "package": "fontdestination-example-plugin",
-  "provides": ["counterpunch-plugin:font-destination:v1"],
-  "fontDestination": {
-    "entryPoint": "example_fontdestination",
-    "pluginId": "example-font-destination",
-    "name": "Example Font Destination",
-    "description": "Opens a small browser receiver that displays basic information about each exported binary font.",
-    "destinationUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/",
-    "targetOrigin": "https://counterpunchspace.github.io",
-    "repositoryUrl": "https://github.com/counterpunchspace/fontdestination-example-plugin",
-    "imageUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/plugin-preview.png"
-  },
-  "release": {
-    "repository": "counterpunchspace/fontdestination-example-plugin",
-    "wheelAssetPrefix": "fontdestination_example_plugin-",
-    "checksumAssetSuffix": ".sha256"
-  }
+  "plugins": [
+    {
+      "type": "font_destination",
+      "contract": "font_destination:v1",
+      "entryPoint": "example_fontdestination",
+      "pluginId": "example-font-destination",
+      "name": "Example Font Destination",
+      "description": "Opens a small browser receiver that displays basic information about each exported binary font.",
+      "destinationUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/",
+      "targetOrigin": "https://counterpunchspace.github.io",
+      "repositoryUrl": "https://github.com/counterpunchspace/fontdestination-example-plugin",
+      "imageUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/plugin-preview.png"
+    }
+  ]
 }

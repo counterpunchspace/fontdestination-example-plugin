@@ -20,9 +20,9 @@ class FontDestinationPluginTest(unittest.TestCase):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         metadata = FontDestinationPlugin().metadata()
 
-        self.assertEqual(
-            manifest["fontDestination"]["entryPoint"], "example_fontdestination"
-        )
+        plugin = manifest["plugins"][0]
+        self.assertEqual(plugin["entryPoint"], "example_fontdestination")
+        self.assertEqual(plugin["contract"], "font_destination:v1")
         for key in (
             "pluginId",
             "name",
@@ -31,11 +31,7 @@ class FontDestinationPluginTest(unittest.TestCase):
             "targetOrigin",
             "repositoryUrl",
         ):
-            self.assertEqual(manifest["fontDestination"][key], metadata[key])
-        self.assertEqual(
-            manifest["release"]["wheelAssetPrefix"],
-            "fontdestination_example_plugin-",
-        )
+            self.assertEqual(plugin[key], metadata[key])
 
 
 if __name__ == "__main__":
