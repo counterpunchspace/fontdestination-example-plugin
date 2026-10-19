@@ -9,7 +9,10 @@ class FontDestinationPluginTest(unittest.TestCase):
     def test_metadata_describes_a_secure_destination(self) -> None:
         metadata = FontDestinationPlugin().metadata()
 
-        self.assertEqual(metadata["pluginId"], "example-font-destination")
+        self.assertEqual(
+            metadata["pluginId"],
+            "io.github.counterpunchspace.example-font-destination",
+        )
         self.assertEqual(
             metadata["targetOrigin"], "https://counterpunchspace.github.io"
         )

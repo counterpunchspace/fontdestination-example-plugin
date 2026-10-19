@@ -6,7 +6,7 @@
       "type": "font_destination",
       "contract": "font_destination:v1",
       "entryPoint": "example_fontdestination",
-      "pluginId": "example-font-destination",
+      "pluginId": "io.github.counterpunchspace.example-font-destination",
       "name": "Example Font Destination",
       "description": "Opens a small browser receiver that displays basic information about each exported binary font.",
       "destinationUrl": "https://counterpunchspace.github.io/fontdestination-example-plugin/",

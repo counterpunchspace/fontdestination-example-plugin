@@ -6,7 +6,7 @@ class FontDestinationPlugin:
 
     # Keep these values in sync with counterpunch-plugin.json. Counterpunch uses
     # this metadata after installing the wheel to populate Tools > Font Destinations.
-    plugin_id = "example-font-destination"
+    plugin_id = "io.github.counterpunchspace.example-font-destination"
     name = "Example Font Destination"
     description = (
         "Opens a small browser receiver that displays basic information about "
