@@ -1,5 +1,6 @@
 {
   "schema": "counterpunch-plugin-manifest:v2",
+  "license": "MIT",
   "package": "fontdestination-example-plugin",
   "plugins": [
     {
